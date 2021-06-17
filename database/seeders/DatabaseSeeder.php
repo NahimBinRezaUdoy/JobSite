@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Category;
 use Illuminate\Database\Seeder;
 use \App\Models\User;
 use \App\Models\Company;
@@ -19,5 +20,13 @@ class DatabaseSeeder extends Seeder
         User::factory(20)->create();
         Company::factory(20)->create();
         Jobs::factory(20)->create();
+
+        $categories = [
+            'Government', 'NGO', 'Banking', 'Software', 'Networking',
+        ];
+
+        foreach ($categories as $category) {
+            Category::create(['name' => $category]);
+        }
     }
 }

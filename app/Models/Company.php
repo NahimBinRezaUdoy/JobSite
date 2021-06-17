@@ -10,4 +10,14 @@ class Company extends Model
     use HasFactory;
 
     protected $guarded = [];
+
+    public function jobs()
+    {
+        return $this->hasMany(Jobs::class);
+    }
+
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
 }

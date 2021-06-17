@@ -10,4 +10,14 @@ class Jobs extends Model
     use HasFactory;
 
     protected $guarded = [];
+
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
+
+    public function company()
+    {
+        return $this->belongsTo(Company::class);
+    }
 }

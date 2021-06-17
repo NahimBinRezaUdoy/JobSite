@@ -1,5 +1,9 @@
 <?php
 
+use App\Http\Controllers\CompanyController;
+use App\Http\Controllers\JobController;
+use App\Http\Controllers\UserProfileController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,9 +17,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+//jobs
+Route::get('/', [JobController::class, 'index']);
+Route::get('/jobs/{id}/{job}', [JobController::class, 'show'])->name('jobs.show');
+
+//Company
+Route::get('/company/{id}/{company}', [CompanyController::class, 'index'])->name('company.index');
+
+//Seeker User Profile
+Route::get('user/profile', [UserProfileController::class, 'index'])->name('user.proflie');
 
 Auth::routes();
 
