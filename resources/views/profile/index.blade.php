@@ -36,18 +36,48 @@
                         <div class="card-body">
                             <div class="form-group">
                                 <label for="Address">Address</label>
-                                <textarea class="form-control" name="address"
+                                <textarea class="form-control @error('address') is-invalid @enderror" name="address"
                                     rows="3">{{ auth()->user()->profile->address }}</textarea>
+                                @error('address')
+                                    <span class="invalid-feedback">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+
+                            <div class="form-group">
+                                <label for="phone_number">Phone Number</label>
+                                <input type="text" name="phone_number"
+                                    class="form-control @error('phone_number') is-invalid @enderror"
+                                    value="{{ auth()->user()->profile->phone_number }}">
+
+                                @error('phone_number')
+                                    <span class="invalid-feedback">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
                             </div>
                             <div class="form-group">
                                 <label for="experience">Experience</label>
-                                <textarea class="form-control" name="experience"
+                                <textarea class="form-control @error('experience') is-invalid @enderror" name="experience"
                                     rows="3">{{ auth()->user()->profile->experience }}</textarea>
+
+                                @error('experience')
+                                    <span class="invalid-feedback">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
                             </div>
                             <div class="form-group">
                                 <label for="bio">Biodata</label>
-                                <textarea class="form-control" name="bio"
+                                <textarea class="form-control @error('bio') is-invalid @enderror" name="bio"
                                     rows="3">{{ auth()->user()->profile->bio }}</textarea>
+
+                                @error('bio')
+                                    <span class="invalid-feedback">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
                             </div>
                             <div class="form-group">
                                 <button class="btn btn-primary">Submit</button>
@@ -65,6 +95,7 @@
                         <p><b>Name: </b>{{ auth()->user()->name }}</p>
                         <p><b>Email: </b>{{ auth()->user()->email }}</p>
                         <p><b>Address: </b>{{ auth()->user()->profile->address }}</p>
+                        <p><b>Phone: </b>{{ auth()->user()->profile->phone_number }}</p>
                         <p><b>Experience: </b>{{ auth()->user()->profile->experience }}</p>
                         <p><b>BioData: </b>{{ auth()->user()->profile->bio }}</p>
                         <p><b>Member Since: </b>{{ date('F d, Y', strtotime(auth()->user()->created_at)) }}</p>
@@ -102,7 +133,14 @@
                     <div class="card">
                         <div class="card-header">Update Cover Letter</div>
                         <div class="card-body">
-                            <input type="file" name="cover_letter" class="form-group">
+                            <input type="file" name="cover_letter"
+                                class="form-group @error('cover_letter') is-invalid @enderror">
+                            @error('cover_letter')
+                                <span class="invalid-feedback">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+
                             <button class="btn btn-primary btn-sm">Update</button>
                         </div>
                     </div>
@@ -113,7 +151,12 @@
                     <div class="card">
                         <div class="card-header">Update Resume</div>
                         <div class="card-body">
-                            <input type="file" name="resume" class="form-group">
+                            <input type="file" name="resume" class="form-group @error('resume') is-invalid @enderror">
+                            @error('resume')
+                                <span class="invalid-feedback">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
                             <button class="btn btn-primary btn-sm">Update</button>
                         </div>
                     </div>
