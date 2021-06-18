@@ -26,6 +26,10 @@ Route::get('/company/{id}/{company}', [CompanyController::class, 'index'])->name
 
 //Seeker User Profile
 Route::get('user/profile', [UserProfileController::class, 'index'])->name('user.proflie');
+Route::post('profile/store', [UserProfileController::class, 'store'])->name('profile.store');
+Route::post('profile/coverletter', [UserProfileController::class, 'coverletter'])->name('profile.coverletter');
+Route::post('/profile/resume', [UserProfileController::class, 'resume'])->name('profile.resume');
+Route::post('/profile/avater', [UserProfileController::class, 'avater'])->name('profile.avater');
 
 Auth::routes();
 
