@@ -18,6 +18,11 @@
                         <div class="card-body">
                             <input type="file" name="avater" class="form-group">
                             <button class="btn btn-primary btn-sm">Update</button>
+                            @error('avater')
+                                <span class="invalid-feedback">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
                         </div>
                     </div>
                 </form>

@@ -17,14 +17,14 @@ class CreateCompaniesTable extends Migration
             $table->id();
             $table->integer('user_id');
             $table->string('cname');
-            $table->string('slug');
-            $table->text('address');
-            $table->integer('phone');
-            $table->string('website');
-            $table->string('logo');
-            $table->string('cover_photo');
-            $table->string('slogan');
-            $table->text('description');
+            $table->string('slug')->nullable();
+            $table->text('address')->nullable();
+            $table->integer('phone')->nullable();
+            $table->string('website')->nullable();
+            $table->string('logo')->nullable();
+            $table->string('cover_photo')->nullable();
+            $table->string('slogan')->nullable();
+            $table->text('description')->nullable();
             $table->timestamps();
         });
     }

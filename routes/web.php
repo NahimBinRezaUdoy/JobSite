@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CompanyController;
+use App\Http\Controllers\EmployerProfileController;
 use App\Http\Controllers\JobController;
 use App\Http\Controllers\UserProfileController;
 use Illuminate\Support\Facades\Auth;
@@ -20,9 +21,7 @@ use Illuminate\Support\Facades\Route;
 //jobs
 Route::get('/', [JobController::class, 'index']);
 Route::get('/jobs/{id}/{job}', [JobController::class, 'show'])->name('jobs.show');
-
-//Company
-Route::get('/company/{id}/{company}', [CompanyController::class, 'index'])->name('company.index');
+Route::get('/jobs/create', [JobController::class, 'create'])->name('jobs.create');
 
 //Seeker User Profile
 Route::get('user/profile', [UserProfileController::class, 'index'])->name('user.proflie');
@@ -30,6 +29,17 @@ Route::post('profile/store', [UserProfileController::class, 'store'])->name('pro
 Route::post('profile/coverletter', [UserProfileController::class, 'coverletter'])->name('profile.coverletter');
 Route::post('/profile/resume', [UserProfileController::class, 'resume'])->name('profile.resume');
 Route::post('/profile/avater', [UserProfileController::class, 'avater'])->name('profile.avater');
+
+//Company
+Route::get('/company/{id}/{company}', [CompanyController::class, 'index'])->name('company.index');
+Route::get('/company/create', [CompanyController::class, 'create'])->name('company.create');
+Route::post('/company/store', [CompanyController::class, 'store'])->name('company.store');
+Route::post('/compnay/logo', [CompanyController::class, 'logo'])->name('company.logo');
+Route::post('/company/cover_photto', [CompanyController::class, 'cover_photo'])->name('company.cover_photo');
+
+//Employer Profile
+Route::view('employer/profile', 'auth.emp-register')->name('employer.profile');
+Route::post('employer/profile/store', [EmployerProfileController::class, 'store'])->name('employer.store');
 
 Auth::routes();
 
