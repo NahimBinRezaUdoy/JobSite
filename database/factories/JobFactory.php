@@ -2,13 +2,13 @@
 
 namespace Database\Factories;
 
-use App\Models\Jobs;
-use App\Models\User;
 use App\Models\Company;
-use Illuminate\Support\Str;
+use App\Models\Job;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
+use illuminate\Support\Str;
 
-class JobsFactory extends Factory
+class JobFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.

@@ -6,7 +6,7 @@ use App\Models\Category;
 use Illuminate\Database\Seeder;
 use \App\Models\User;
 use \App\Models\Company;
-use \App\Models\Jobs;
+use \App\Models\Job;
 
 class DatabaseSeeder extends Seeder
 {
@@ -19,7 +19,7 @@ class DatabaseSeeder extends Seeder
     {
         User::factory(20)->create();
         Company::factory(20)->create();
-        Jobs::factory(20)->create();
+        Job::factory(20)->create();
 
         $categories = [
             'Government', 'NGO', 'Banking', 'Software', 'Networking',

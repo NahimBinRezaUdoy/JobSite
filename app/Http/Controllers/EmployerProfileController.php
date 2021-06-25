@@ -10,6 +10,11 @@ use Illuminate\Support\Str;
 
 class EmployerProfileController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('employer');
+    }
+
     public function store(Request $request)
     {
         $this->validate($request, [
