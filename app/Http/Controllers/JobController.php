@@ -11,8 +11,9 @@ class JobController extends Controller
 {
     public function index()
     {
+        $companies = Company::all()->take(12);
         $jobs = Job::all()->take(10);
-        return view('welcome', compact('jobs'));
+        return view('welcome', compact('jobs', 'companies'));
     }
 
     public function show($id, Job $job)
@@ -70,5 +71,11 @@ class JobController extends Controller
         $applicants = Job::has('users')->where('user_id', auth()->user()->id)->get();
 
         return view('jobs.applicants', compact('applicants'));
+    }
+
+    public function alljobs()
+    {
+        $jobs = Job::latest()->take(10)->get();
+        return view('jobs.alljobs', compact('jobs'));
     }
 }

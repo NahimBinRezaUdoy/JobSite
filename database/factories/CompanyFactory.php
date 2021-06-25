@@ -30,9 +30,9 @@ class CompanyFactory extends Factory
             'address' => $this->faker->address,
             'phone' => '01724191079',
             'website' => $this->faker->domainName,
-            'logo' => 'img/ud.jpeg',
-            'cover_photo' => 'img/banner.jpg',
-            'slogan' => 'Cholo Job Kori',
+            'logo' => $this->faker->image('public/storage/logo', 640, 480, null, false),
+            'cover_photo' => $this->faker->image('public/storage/cover_photo', 640, 480, null, false),
+            'slogan' => $this->faker->sentence($nbWords = 5, $variableNbWords = true),
             'description' => $this->faker->paragraph(rand(2, 10)),
 
         ];

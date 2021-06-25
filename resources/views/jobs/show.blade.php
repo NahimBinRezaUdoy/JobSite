@@ -47,7 +47,7 @@
                             <b>Estimate:</b> {{ $job->last_date }}
                         </p>
                     </div>
-                    @if (Auth::user()->user_type == 'seeker')
+                    @if (Auth::check() && Auth::user()->user_type == 'seeker')
                         @if (!$job->checkApplication())
                             <form action="{{ route('jobs.apply', [$job->id]) }}" method="post">
                                 @csrf

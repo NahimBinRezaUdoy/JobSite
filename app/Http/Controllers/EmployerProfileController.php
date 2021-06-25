@@ -10,10 +10,10 @@ use Illuminate\Support\Str;
 
 class EmployerProfileController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware('employer');
-    }
+    // public function __construct()
+    // {
+    //     $this->middleware('employer');
+    // }
 
     public function store(Request $request)
     {
@@ -35,6 +35,6 @@ class EmployerProfileController extends Controller
             'slug' =>  Str::slug(request('cname')),
         ]);
 
-        return redirect()->to('login');
+        return redirect('login');
     }
 }
