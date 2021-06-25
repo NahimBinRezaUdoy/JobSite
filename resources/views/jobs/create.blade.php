@@ -11,6 +11,12 @@
                         <form method="POST" action="{{ route('jobs.store') }}">
                             @csrf
 
+                            @if (Session::has('message'))
+                                <div class="alert alert-success">
+                                    {{ Session::get('message') }}
+                                </div>
+                            @endif
+
                             <div class="form-group row">
                                 <label for="title" class="col-md-2 col-form-label text-md-right">{{ __('Title') }}</label>
 
@@ -27,13 +33,13 @@
                             </div>
 
                             <div class="form-group row">
-                                <label for="role" class="col-md-2 col-form-label text-md-right">{{ __('Roles') }}</label>
+                                <label for="roles" class="col-md-2 col-form-label text-md-right">{{ __('Roles') }}</label>
 
                                 <div class="col-md-8">
-                                    <input id="role" type="text" class="form-control @error('role') is-invalid @enderror"
-                                        name="role" value="{{ old('role') }}" required autocomplete="role">
+                                    <input id="roles" type="text" class="form-control @error('roles') is-invalid @enderror"
+                                        name="roles" value="{{ old('roles') }}" required autocomplete="roles">
 
-                                    @error('role')
+                                    @error('roles')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
                                         </span>
@@ -63,7 +69,7 @@
                                     class="col-md-2 col-form-label text-md-right">{{ __('Address') }}</label>
                                 <div class="col-md-8">
                                     <textarea class="form-control @error('address') is-invalid @enderror" name="address"
-                                        rows="2"></textarea>
+                                        rows="2" required></textarea>
 
                                     @error('address')
                                         <span class="invalid-feedback">
@@ -78,7 +84,7 @@
                                     class="col-md-2 col-form-label text-md-right">{{ __('Description') }}</label>
                                 <div class="col-md-8">
                                     <textarea class="form-control @error('description') is-invalid @enderror"
-                                        name="description" rows="2"></textarea>
+                                        name="description" rows="2" required></textarea>
 
                                     @error('description')
                                         <span class="invalid-feedback">

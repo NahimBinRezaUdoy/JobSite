@@ -4,6 +4,11 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
+                @if (Session::has('message'))
+                    <div class="alert alert-success">
+                        {{ Session::get('message') }}
+                    </div>
+                @endif
                 <div class="card">
                     <div class="card-header"><b>{{ $job->title }}</b></div>
 
@@ -42,9 +47,14 @@
                             <b>Estimate:</b> {{ $job->last_date }}
                         </p>
                     </div>
-                    @auth
-                        <button class="btn btn-success">Apply</button>
-                    @endauth
+                    @if (Auth::user()->user_type == 'seeker')
+                        @if (!$job->checkApplication())
+                            <form action="{{ route('jobs.apply', [$job->id]) }}" method="post">
+                                @csrf
+                                <button class="btn btn-success">Apply</button>
+                            </form>
+                        @endif
+                    @endif
                 </div>
             </div>
         </div>

@@ -15,7 +15,7 @@ class JobsFactory extends Factory
      *
      * @var string
      */
-    protected $model = Jobs::class;
+    protected $model = Job::class;
 
     /**
      * Define the model's default state.

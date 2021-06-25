@@ -20,8 +20,12 @@ use Illuminate\Support\Facades\Route;
 
 //jobs
 Route::get('/', [JobController::class, 'index']);
-Route::get('/jobs/{id}/{job}', [JobController::class, 'show'])->name('jobs.show');
-Route::get('/jobs/create', [JobController::class, 'create'])->name('jobs.create');
+Route::get('jobs/{id}/{job}', [JobController::class, 'show'])->name('jobs.show');
+Route::get('jobs/create', [JobController::class, 'create'])->name('jobs.create');
+Route::post('jobs/store', [JobController::class, 'store'])->name('jobs.store');
+Route::get('jobs/myjobs', [JobController::class, 'myjobs'])->name('jobs.myjobs');
+Route::post('jobs/apply/{id}', [JobController::class, 'apply'])->name('jobs.apply');
+Route::get('jobs/applicants', [JobController::class, 'applicants'])->name('jobs.applicants');
 
 //Seeker User Profile
 Route::get('user/profile', [UserProfileController::class, 'index'])->name('user.proflie');

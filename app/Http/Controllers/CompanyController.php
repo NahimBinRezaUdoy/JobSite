@@ -64,7 +64,7 @@ class CompanyController extends Controller
     public function cover_photo(Request $request)
     {
         $this->validate($request, [
-            'cover_photo' => 'required|mimes:jpg,png,jpeg',
+            'cover_photo' => 'required|mimes:jpg,png,jpeg|max:1024',
         ]);
 
         $user_id = auth()->user()->id;

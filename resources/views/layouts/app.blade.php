@@ -88,6 +88,14 @@
                                         <a class="dropdown-item" href="{{ route('company.create') }}">
                                             {{ __('Profile') }}
                                         </a>
+
+                                        <a class="dropdown-item" href="{{ route('jobs.myjobs') }}">
+                                            {{ __('My Jobs') }}
+                                        </a>
+
+                                        <a class="dropdown-item" href="{{ route('jobs.applicants') }}">
+                                            {{ __('Applicants') }}
+                                        </a>
                                     @elseif (auth()->user()->user_type == 'seeker')
                                         <a class="dropdown-item" href="{{ route('user.proflie') }}">
                                             {{ __('Profile') }}
@@ -95,7 +103,7 @@
                                     @endif
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                         onclick="event.preventDefault();
-                                                                                                                                             document.getElementById('logout-form').submit();">
+                                                                                                                                                     document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
                                     </a>
 

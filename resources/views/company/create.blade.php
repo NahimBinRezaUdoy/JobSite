@@ -112,7 +112,9 @@
                 <div class="card">
                     <div class="card-header">Company Details</div>
                     <div class="card-body">
-                        <p><b>Company Name: </b>{{ auth()->user()->company->cname }}</p>
+                        <p><b>Company Name: </b><a
+                                href="company/{{ auth()->user()->company->slug }}">{{ auth()->user()->company->cname }}</a>
+                        </p>
                         <p><b>Company Email: </b>{{ auth()->user()->email }}</p>
                         <p><b>Address: </b>{{ auth()->user()->company->address }}</p>
                         <p><b>Phone: </b>{{ auth()->user()->company->phone }}</p>
@@ -121,17 +123,15 @@
                         <p><b>Description: </b>{{ auth()->user()->company->description }}</p>
                         <p><b>Member Since: </b>{{ date('F d, Y', strtotime(auth()->user()->created_at)) }}</p>
 
-                        @if (!empty(auth()->user()->company->cover_photo))
-                            <b>Cover Letter: </b>
-                            <a href="{{ Storage::url(auth()->user()->company->cover_photo) }}">
-                                <button class="btn btn-danger btn-sm">Download Cover Letter</button>
-                            </a><br>
-                        @else
-                            <p>
-                                <b>Cover Letter: </b>
-                                Please Upload Cover Letter
-                            </p>
+                        <p><b>Cover Photo: </b>
+                            @if (empty(auth()->user()->company->cover_photo))
+                                Please Uploads Your Cover Photo
+                        </p>
+                    @else
+                        <img src="{{ asset('uploads/cover_photo') }}/{{ auth()->user()->company->cover_photo }}"
+                            width="150" height="50" alt="">
                         @endif
+                        <br>
 
                     </div>
                 </div>
