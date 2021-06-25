@@ -45,7 +45,7 @@
                     @endforeach
                 </tbody>
             </table>
-
+            {{ $jobs->links('pagination::bootstrap-4') }}
         </div>
     </div>
 @endsection

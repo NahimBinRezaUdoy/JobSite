@@ -75,7 +75,7 @@ class JobController extends Controller
 
     public function alljobs()
     {
-        $jobs = Job::latest()->take(10)->get();
+        $jobs = Job::latest()->paginate(10);
         return view('jobs.alljobs', compact('jobs'));
     }
 }
