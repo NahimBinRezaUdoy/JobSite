@@ -38,7 +38,7 @@
                             </td>
                             <td>
                                 <a href="{{ route('jobs.show', [$job->id, $job->slug]) }}">
-                                    <button class="btn btn-success btn-sm">Apply</button>
+                                    <button class="btn btn-success btn-sm">Show</button>
                                 </a>
                             </td>
                         </tr>
